@@ -1,11 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    
     <application
         android:label="hidden_menu_challenge"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
 
-
+         <meta-data
+    android:name="io.flutter.embedding.android.EnableImpeller"
+    android:value="false" />
 
 
 
@@ -25,6 +31,12 @@
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
                  to determine the Window background behind the Flutter UI. -->
+            
+   
+            
+            
+            
+            
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
