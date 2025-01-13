@@ -61,12 +61,12 @@ class _HomeViewBodyState extends State<HomeViewBody>
       onTap: () async {
         if (provider.dragContainerHeight >
             AppConstants.dragContainerMinHeight) {
+          provider.setDragContainerPressed();
           provider.setDragContainerHeightToMin();
-         await _controller.forward(from: .5).then((_) {
+          await _controller.forward(from: .5).then((_) {
             provider.resetDragContainerPressed();
           });
         }
-       
       },
       behavior:
           HitTestBehavior.opaque, // Ensures the tap is detected in empty areas

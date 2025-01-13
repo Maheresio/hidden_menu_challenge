@@ -21,7 +21,7 @@ class DragContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedPositionedDirectional(
       duration: provider.dragContainerPressed
-          ? Duration(milliseconds: 400)
+          ? Duration(milliseconds: 1000)
           : Duration.zero,
       curve: Curves.linear,
       bottom: 0,
