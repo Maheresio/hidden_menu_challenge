@@ -16,16 +16,16 @@ class ListviewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<MenuProvider>();
-    return ConstrainedBox(
-      constraints: BoxConstraints(
-        minHeight: AppConstants.dragContainerMinHeight,
-      ),
-      child: GestureDetector(
-        onTap: () {
-          provider.selectValue(AppConstants.itemsList[index].itemStatus);
-          provider.setDragContainerHeightToMax();
-          provider.setIsPressed(true);
-        },
+    return GestureDetector(
+      onTap: () {
+        provider.selectValue(AppConstants.itemsList[index].itemStatus);
+        provider.setDragContainerHeightToMax();
+        provider.setIsPressed(true);
+      },
+      child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: AppConstants.dragContainerMinHeight,
+        ),
         child: Card(
           color:
               AppConstants.itemsList[index].itemStatus == provider.selectedValue

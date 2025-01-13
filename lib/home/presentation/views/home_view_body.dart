@@ -68,6 +68,21 @@ class _HomeViewBodyState extends State<HomeViewBody>
           HitTestBehavior.opaque, // Ensures the tap is detected in empty areas
       child: Stack(
         children: [
+          Positioned.directional(
+            textDirection: TextDirection.ltr,
+            start: 130.w,
+            bottom: 0,
+            end: 0,
+            top: 10.h,
+            child: Text(
+              'Maheresio',
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ),
           Padding(
             padding: EdgeInsetsDirectional.only(
               start: 14.w,
@@ -80,21 +95,6 @@ class _HomeViewBodyState extends State<HomeViewBody>
             provider: provider,
             controller: _controller,
             updateAnimation: _updateAnimation,
-          ),
-          Positioned.directional(
-            textDirection: TextDirection.ltr,
-            start: 130.w,
-            bottom: 0,
-            end: 0,
-            top: 0,
-            child: Text(
-              'Maheresio',
-              style: TextStyle(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
           ),
         ],
       ),
