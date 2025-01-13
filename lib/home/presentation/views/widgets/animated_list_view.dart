@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/utils/app_constants.dart';
-import '../../../../core/utils/helpers/animations_method.dart';
+import '../../../../core/helpers/animations_method.dart';
 import 'listview_item.dart';
 
 class AnimatedListView extends StatelessWidget {

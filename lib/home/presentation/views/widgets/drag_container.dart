@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hidden_menu_challenge/core/utils/app_constants.dart';
-import 'package:hidden_menu_challenge/home/presentation/controller/menu_provider.dart';
+import '../../../../core/utils/app_constants.dart';
+import '../../controller/menu_provider.dart';
 
 import '../../../../core/utils/app_colors.dart';
 

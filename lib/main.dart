@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hidden_menu_challenge/home/presentation/controller/menu_provider.dart';
-import 'package:hidden_menu_challenge/home/presentation/views/home_view.dart';
+import 'home/presentation/controller/menu_provider.dart';
+import 'home/presentation/views/home_view.dart';
 import 'package:provider/provider.dart';
 
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hidden_menu_challenge/core/utils/app_constants.dart';
-import 'package:hidden_menu_challenge/home/presentation/views/widgets/drag_container.dart';
+import '../../../core/utils/app_constants.dart';
+import 'widgets/drag_container.dart';
 import 'package:provider/provider.dart';
 import 'widgets/animated_list_view.dart';
 import '../controller/menu_provider.dart';
@@ -83,7 +83,8 @@ class _HomeViewBodyState extends State<HomeViewBody>
           ),
           Positioned.directional(
             textDirection: TextDirection.ltr,
-            start:130.w,
+            start: 130.w,
+            bottom: 0,
             end: 0,
             top: 0,
             child: Text(

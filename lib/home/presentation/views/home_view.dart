@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hidden_menu_challenge/core/utils/app_colors.dart';
+import '../../../core/utils/app_colors.dart';
 
 import 'home_view_body.dart';
 

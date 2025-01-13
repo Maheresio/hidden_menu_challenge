@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../app_constants.dart';
+import '../utils/app_constants.dart';
 
 Map<String, Animation> createAnimations(
     int index, AnimationController controller) {
