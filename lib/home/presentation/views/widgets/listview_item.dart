@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../controller/menu_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_constants.dart';
+import '../../controller/menu_provider.dart';
 
 class ListviewItem extends StatelessWidget {
   const ListviewItem(
@@ -21,9 +21,11 @@ class ListviewItem extends StatelessWidget {
         provider.selectValue(AppConstants.itemsList[index].itemStatus);
         provider.setDragContainerHeightToMax();
         provider.setIsPressed(true);
+        provider.setDragContainerPressed();
       },
       child: ConstrainedBox(
         constraints: BoxConstraints(
+          maxHeight: AppConstants.dragContainerMaxHeight,
           minHeight: AppConstants.dragContainerMinHeight,
         ),
         child: Card(
@@ -44,7 +46,7 @@ class ListviewItem extends StatelessWidget {
                   AppConstants.itemsList[index].icon,
                   color: AppConstants.itemsList[index].itemStatus ==
                           provider.selectedValue
-                      ? AppColors.darkBlue
+                      ? AppColors.blue
                       : AppColors.white,
                 ),
                 Text(
@@ -54,7 +56,7 @@ class ListviewItem extends StatelessWidget {
                     fontWeight: FontWeight.w900,
                     color: AppConstants.itemsList[index].itemStatus ==
                             provider.selectedValue
-                        ? AppColors.darkBlue
+                        ? AppColors.blue
                         : Colors.white,
                   ),
                 ),

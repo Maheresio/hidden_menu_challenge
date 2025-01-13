@@ -34,12 +34,22 @@ class MenuProvider extends ChangeNotifier {
 
   void setDragContainerHeightToMin() {
     dragContainerHeight = AppConstants.dragContainerMinHeight;
-
     notifyListeners();
   }
 // Track if the button was pressed
 
   bool isPressed = false;
+  bool dragContainerPressed = false;
+
+  void setDragContainerPressed() {
+    dragContainerPressed = true;
+    notifyListeners();
+  }
+
+  void resetDragContainerPressed() {
+    dragContainerPressed = false;
+    notifyListeners();
+  }
 
   void setIsPressed(bool value) {
     isPressed = value;
@@ -58,5 +68,4 @@ class MenuProvider extends ChangeNotifier {
         dragContainerHeight.clamp(75.h, AppConstants.dragContainerMaxHeight);
     notifyListeners();
   }
-
 }

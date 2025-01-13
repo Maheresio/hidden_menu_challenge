@@ -20,7 +20,9 @@ class DragContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedPositionedDirectional(
-      duration: Duration(milliseconds: 100),
+      duration: provider.dragContainerPressed
+          ? Duration(milliseconds: 400)
+          : Duration.zero,
       curve: Curves.linear,
       bottom: 0,
       start: 0,
@@ -28,6 +30,7 @@ class DragContainer extends StatelessWidget {
       height: provider.dragContainerHeight,
       child: GestureDetector(
         onPanUpdate: (details) {
+          provider.resetDragContainerPressed();
           // Update the container height
           provider.onPadUpdate(details);
 
@@ -40,7 +43,7 @@ class DragContainer extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white60,
+            color: Colors.white54,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(AppConstants.circularRadius40),
               topRight: Radius.circular(AppConstants.circularRadius40),

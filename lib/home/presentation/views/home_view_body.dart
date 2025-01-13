@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/utils/app_constants.dart';
-import 'widgets/drag_container.dart';
 import 'package:provider/provider.dart';
-import 'widgets/animated_list_view.dart';
+
+import '../../../core/utils/app_constants.dart';
 import '../controller/menu_provider.dart';
+import 'widgets/animated_list_view.dart';
+import 'widgets/drag_container.dart';
 
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
@@ -23,7 +24,7 @@ class _HomeViewBodyState extends State<HomeViewBody>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds: 2),
     )..forward(from: 0);
   }
 
@@ -48,7 +49,7 @@ class _HomeViewBodyState extends State<HomeViewBody>
 
     // Listen to changes in the container height
     if (provider.isPressed) {
-      _controller.reverse(from: .7);
+      _controller.reverse(from: .5);
 
       // Use a post-frame callback to reset the flag after the current frame
       SchedulerBinding.instance.addPostFrameCallback((_) {
@@ -57,12 +58,15 @@ class _HomeViewBodyState extends State<HomeViewBody>
     }
 
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
         if (provider.dragContainerHeight >
             AppConstants.dragContainerMinHeight) {
           provider.setDragContainerHeightToMin();
-          _controller.forward(from: .5);
+         await _controller.forward(from: .5).then((_) {
+            provider.resetDragContainerPressed();
+          });
         }
+       
       },
       behavior:
           HitTestBehavior.opaque, // Ensures the tap is detected in empty areas
