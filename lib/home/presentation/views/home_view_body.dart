@@ -48,7 +48,7 @@ class _HomeViewBodyState extends State<HomeViewBody>
 
     // Listen to changes in the container height
     if (provider.isPressed) {
-      _controller.reverse(from: .8);
+      _controller.reverse(from: .7);
 
       // Use a post-frame callback to reset the flag after the current frame
       SchedulerBinding.instance.addPostFrameCallback((_) {
@@ -61,19 +61,15 @@ class _HomeViewBodyState extends State<HomeViewBody>
         if (provider.dragContainerHeight >
             AppConstants.dragContainerMinHeight) {
           provider.setDragContainerHeightToMin();
-          _controller.forward(from: .2);
+          _controller.forward(from: .5);
         }
       },
       behavior:
           HitTestBehavior.opaque, // Ensures the tap is detected in empty areas
       child: Stack(
         children: [
-          Positioned.directional(
-            textDirection: TextDirection.ltr,
-            start: 130.w,
-            bottom: 0,
-            end: 0,
-            top: 10.h,
+          Align(
+            alignment: Alignment.topCenter,
             child: Text(
               'Maheresio',
               style: TextStyle(

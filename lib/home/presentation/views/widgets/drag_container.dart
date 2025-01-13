@@ -20,7 +20,7 @@ class DragContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedPositionedDirectional(
-      duration: Duration(milliseconds: 400),
+      duration: Duration(milliseconds: 100),
       curve: Curves.linear,
       bottom: 0,
       start: 0,
