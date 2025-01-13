@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hidden_menu_challenge/presentation/controller/menu_provider.dart';
+import 'package:hidden_menu_challenge/home/presentation/controller/menu_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/utils/app_colors.dart';
-import '../../../core/utils/app_constants.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_constants.dart';
 
 class ListviewItem extends StatelessWidget {
-  const ListviewItem({super.key, required this.index});
+  const ListviewItem(
+      {super.key, required this.index, required this.controller});
 
   final int index;
+  final AnimationController controller;
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<MenuProvider>();
     return ConstrainedBox(
       constraints: BoxConstraints(
-        minHeight: 75.h,
+        minHeight: AppConstants.dragContainerMinHeight,
       ),
       child: GestureDetector(
         onTap: () {

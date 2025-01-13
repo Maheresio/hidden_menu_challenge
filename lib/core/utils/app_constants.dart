@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hidden_menu_challenge/presentation/controller/menu_provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hidden_menu_challenge/home/presentation/controller/menu_provider.dart';
 
 abstract class AppConstants {
+  static double circularRadius40 = 40.r;
+
+  static double screenHeight = 1.sh;
+  static double dragContainerMaxHeight = screenHeight * .9;
+  static double dragContainerMinHeight = 75.h;
+
+
   static const List<({String label, IconData icon, ItemStatus itemStatus})>
       itemsList = [
     (

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hidden_menu_challenge/core/utils/app_constants.dart';
 
 enum ItemStatus {
   lights,
@@ -12,25 +13,29 @@ enum ItemStatus {
 
 class MenuProvider extends ChangeNotifier {
   //selected value for the text in the draggable container
-  var selectedValue = ItemStatus.aircon;
+  var selectedValue = AppConstants.itemsList[0].itemStatus;
+  int index = 0;
 
   void selectValue(ItemStatus itemStatus) {
     selectedValue = itemStatus;
+    index = itemStatus.index;
 
     notifyListeners();
   }
 
   double dragContainerHeight = 75.h;
 
-  final maxHeight = 1.sh * .8;
-  final minHeight = 75.h;
-
   void setDragContainerHeightToMax() {
-    dragContainerHeight = maxHeight;
+    dragContainerHeight = AppConstants.dragContainerMaxHeight;
 
     notifyListeners();
   }
 
+  void setDragContainerHeightToMin() {
+    dragContainerHeight = AppConstants.dragContainerMinHeight;
+
+    notifyListeners();
+  }
 // Track if the button was pressed
 
   bool isPressed = false;
@@ -48,15 +53,9 @@ class MenuProvider extends ChangeNotifier {
   // Update the height of the draggable container
   void onPadUpdate(DragUpdateDetails details) {
     dragContainerHeight -= details.delta.dy;
-    dragContainerHeight = dragContainerHeight.clamp(75.h, maxHeight);
+    dragContainerHeight =
+        dragContainerHeight.clamp(75.h, AppConstants.dragContainerMaxHeight);
     notifyListeners();
   }
 
-  void updateAnimation(AnimationController controller) {
-    final progress =
-        (dragContainerHeight - minHeight) / (maxHeight - minHeight);
-
-    // Invert the progress for reverse behavior
-    controller.value = 1 - progress.clamp(0.0, 1.0);
-  }
 }
